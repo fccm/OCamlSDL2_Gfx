@@ -21,6 +21,29 @@
 #include "sdlrender_stub.h"
 
 CAMLprim value
+caml_pixelRGBA(
+        value renderer,
+        value x, value y,
+        value r, value g, value b, value a)
+{
+    int ret =
+        pixelRGBA(
+            SDL_Renderer_val(renderer),
+            Int_val(x), Int_val(y),
+            Int_val(r), Int_val(g), Int_val(b), Int_val(a));
+
+    return Val_unit;
+}
+
+CAMLprim value
+caml_pixelRGBA_bytecode(value * argv, int argn)
+{
+    return caml_pixelRGBA(
+            argv[0], argv[1], argv[2],
+            argv[3], argv[4], argv[5], argv[6] );
+}
+
+CAMLprim value
 caml_rectangleRGBA(
         value renderer,
         value x1, value y1,

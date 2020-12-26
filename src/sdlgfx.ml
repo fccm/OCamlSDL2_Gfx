@@ -1,5 +1,5 @@
-(* OCamlSDL2_Image - An OCaml interface to the SDL2_Image library
- Copyright (C) 2013 Florent Monnier
+(* OCamlSDL2_Gfx - An OCaml interface to the SDL2_gfx library
+ Copyright (C) 2020 Florent Monnier
  
  This software is provided "AS-IS", without any express or implied warranty.
  In no event will the authors be held liable for any damages arising from
@@ -9,6 +9,13 @@
  including commercial applications, and to alter it and redistribute it freely.
 *)
 (* Graphics primitives for SDL2 *)
+
+external pixelRGBA :
+  Sdlrender.t ->
+  x:int -> y:int ->
+  r:int -> g:int -> b:int -> a:int -> unit
+  = "caml_pixelRGBA_bytecode"
+    "caml_pixelRGBA"
 
 external rectangleRGBA : 
   Sdlrender.t ->
