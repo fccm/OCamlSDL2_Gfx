@@ -44,6 +44,52 @@ caml_pixelRGBA_bytecode(value * argv, int argn)
 }
 
 CAMLprim value
+caml_hlineRGBA(
+        value renderer,
+        value x1, value x2, value y,
+        value r, value g, value b, value a)
+{
+    int ret =
+        hlineRGBA(
+            SDL_Renderer_val(renderer),
+            Int_val(x1), Int_val(x2), Int_val(y),
+            Int_val(r), Int_val(g), Int_val(b), Int_val(a));
+
+    return Val_unit;
+}
+
+CAMLprim value
+caml_hlineRGBA_bytecode(value * argv, int argn)
+{
+    return caml_hlineRGBA(
+            argv[0], argv[1], argv[2], argv[3],
+            argv[4], argv[5], argv[6], argv[7] );
+}
+
+CAMLprim value
+caml_vlineRGBA(
+        value renderer,
+        value x, value y1, value y2,
+        value r, value g, value b, value a)
+{
+    int ret =
+        vlineRGBA(
+            SDL_Renderer_val(renderer),
+            Int_val(x), Int_val(y1), Int_val(y2),
+            Int_val(r), Int_val(g), Int_val(b), Int_val(a));
+
+    return Val_unit;
+}
+
+CAMLprim value
+caml_vlineRGBA_bytecode(value * argv, int argn)
+{
+    return caml_vlineRGBA(
+            argv[0], argv[1], argv[2], argv[3],
+            argv[4], argv[5], argv[6], argv[7] );
+}
+
+CAMLprim value
 caml_rectangleRGBA(
         value renderer,
         value x1, value y1,

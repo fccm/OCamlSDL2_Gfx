@@ -17,6 +17,20 @@ external pixelRGBA :
   = "caml_pixelRGBA_bytecode"
     "caml_pixelRGBA"
 
+external hlineRGBA :
+  Sdlrender.t ->
+  x1:int -> x2:int -> y:int ->
+  r:int -> g:int -> b:int -> a:int -> unit
+  = "caml_hlineRGBA_bytecode"
+    "caml_hlineRGBA"
+
+external vlineRGBA :
+  Sdlrender.t ->
+  x:int -> y1:int -> y2:int ->
+  r:int -> g:int -> b:int -> a:int -> unit
+  = "caml_vlineRGBA_bytecode"
+    "caml_vlineRGBA"
+
 external rectangleRGBA : 
   Sdlrender.t ->
   x1:int -> y1:int ->
